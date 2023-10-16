@@ -9,7 +9,7 @@ function preload() {
     // loop to preload meme templates into the memes array
     for (let i = 0; i < 3; i++) {
         // load each image and add to the memes array. The string template uses the loop's index to generate the filename.
-        memes.push(loadImage(`meme${i}.jpg`));
+        memes.push(loadImage(`meme${i}.jpeg`));
     }
 }
 
