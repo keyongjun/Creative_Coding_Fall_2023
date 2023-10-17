@@ -30,29 +30,27 @@ function setup() {
 }
 
 function draw() {
-    // This function is called repeatedly and is used to update the display.
 
-    // Set a light gray background color
     background(220);
     
-    // Display the currently selected meme template image
+    // display the currently selected meme template image
     image(memes[currentMeme], 0, 0, width, height);
     
-    // Set the fill color for the text to black
+    // set the fill color for the text to black
     fill(0);
-    // Set the text size to 24 pixels
+    // set the text size to 24 pixels
     textSize(24);
     
-    // Display the meme text typed by the user at the top center of the image
+    // display the meme text typed by the user at the top center of the image
     text(inputBox.value(), width/2 - textWidth(inputBox.value())/2, 40);
     
-    // Display the meme text typed by the user at the bottom center of the image
+    // display the meme text typed by the user at the bottom center of the image
     text(inputBox.value(), width/2 - textWidth(inputBox.value())/2, height - 10);
 }
 
 function nextImage() {
-    // Function to cycle through the meme templates.
+    // function to cycle through the meme templates.
 
-    // Increment the currentMeme value, but use modulo to wrap around if we reach the end of the memes array
+    // increment the currentMeme value, but use modulo to wrap around if we reach the end of the memes array
     currentMeme = (currentMeme + 1) % memes.length;
 }
