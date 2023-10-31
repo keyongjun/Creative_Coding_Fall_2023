@@ -28,7 +28,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(200);
 
   // check if there's weather data available for the city the user entered.
   if (weather[cityInput.value()]) {
