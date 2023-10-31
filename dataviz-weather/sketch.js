@@ -15,20 +15,20 @@ function setup() {
   // create an input field for the user to enter the name of a city.
   cityInput = createInput();
   // set the position of the input field on the canvas.
-  cityInput.position(10, 10);
+  cityInput.position(100, 100);
 
   // create a button with the label "Check Weather".
   let button = createButton('Check Weather');
 
   // set the position of the button right next to the input field.
-  button.position(cityInput.x + cityInput.width + 10, 10);
+  button.position(cityInput.x + cityInput.width + 100, 100);
 
   // assign a function to be executed when the button is pressed.
   button.mousePressed(getWeather);
 }
 
 function draw() {
-  background(200);
+  background(255, 165, 0);
 
   // check if there's weather data available for the city the user entered.
   if (weather[cityInput.value()]) {
