@@ -254,7 +254,7 @@ function hellobox() {
     } else if (textShow == 23) {
       text("I can't see the way home but", bP.x+30, bP.y-25);
     } else if (textShow == 24) {
-      text("I see these signs!", bP.x+30, bP.y-25);
+      text("I see the sign!", bP.x+30, bP.y-25);
     } else if (textShow == 25) {
       text("Let's go closer!", bP.x+30, bP.y-25);
       bP.move();
@@ -267,7 +267,7 @@ function hellobox() {
         textShow++;
       }
     } else if (textShow == 26) {
-      text("There's an unidentified problem written here.", bP.x+30, bP.y-25);
+      text("Well, I guess this is the problem we need to solve.", bP.x+30, bP.y-25);
     } else if (textShow == 27) {
       text("I have no idea..", bP.x+30, bP.y-25);
     } else if (textShow == 28) {
@@ -282,7 +282,7 @@ function hellobox() {
       background(0);
       push();
       fill(255);
-      text("Looks like it is!", bP.x+30, bP.y-25);
+      text("Yes, it is!", bP.x+30, bP.y-25);
       pop();
     } else if (textShow == 33) {
       gamestop = true;
