@@ -93,7 +93,7 @@ function display_state() {
         textStyle(BOLD);
         textSize(20);
         textAlign(RIGHT);
-        text("By the way, who is the sir next to you?", bP2.x+30, bP2.y-25);
+        text("By the way, who is this sir next to us?", bP2.x+30, bP2.y-25);
         pop();
       } else if (textShow == 3) {
         if (bP2.x > 700) {
@@ -120,101 +120,5 @@ function display_state() {
       }
       drawStageBox();
     }
-  } else if (nowStage == 2 && game == true) {
-    if (gamestop == false) {
-      if (textShow >= 0 && textShow <= 3) {
-        background(100);
-        bP3.display();
-        sign();
-        signPlate();
-        push();
-        noStroke();
-        fill(0);
-        rect(0, height-25, width, 25);
-        pop();
-        push();
-        noStroke();
-        textStyle(BOLD);
-        textAlign(CENTER);
-        textSize(30);
-        fill(150);
-        text("[Dodge game]",width/2,200);
-        textSize(20);
-        fill(0);
-        text("How to create an object named avoidRect?",width/2,250);
-        text("Answer: ",290,373);
-        pop();
-      }
-      push();
-      fill(0);
-      noStroke();
-      textStyle(BOLD);
-      textSize(20);
-      textAlign(CENTER);
-      if (textShow == 0) {
-        s_pop.play();
-        textShow++;
-      } else if (textShow == 1) {
-        text("Here you are!", bP3.x+30, bP3.y-25);
-      } else if (textShow == 3) {
-        text("Is this correct again?", bP3.x+30, bP3.y-25);
-      } else if (textShow == 4) {
-        background(0);
-        textShow++;
-      } else if (textShow == 5) {
-        background(0);
-        fill(255);
-        textSize(30);
-        text("It's too dark!!", bP3.x+30, bP3.y-25);
-      }
-      pop();
-      if (textShow >= 2 && textShow < 4) {
-        if (textShow > 1) {
-          push();
-          fill(0);
-          noStroke();
-          textStyle(BOLD);
-          textSize(20);
-          textAlign(CENTER);
-          for(let i=0; i<textIndex+1 && i<textArr[2].length; i++) {
-            if (i == textIndex) {
-              fill(255,0,0);
-            } else {
-              fill(0);
-            }
-            text(textArr[2][i],310+i*11+30,373);
-            if (key == textArr[2][textIndex]) {
-              s_type.play();
-              textIndex++;
-            } else if (textArr[2][textIndex] == ' ') {
-              textIndex++;
-            }
-          }
-          fill(0);
-          if (textIndex > 0 && textShow == 2) {
-            text("It's fascinating to watch it again!!", bP3.x+30, bP3.y-25);
-          } else if (textIndex == 0 && textShow == 2) {
-            text("No matter how much I look at it, I don't know what this is!!!", bP3.x+30, bP3.y-25);
-          }
-          pop();
-          if (textIndex == textArr[2].length) {
-            if (textShow == 2) {
-              s_pop.play();
-              textShow++;
-            }
-          }
-        }
-      }
-      if (textShow == 6) {
-        gameOn();
-      }
-    } else {
-      background(0);
-      if (clearS == false) {
-        s_clear.play();
-        clearS = true;
-      }
-      drawStageBox();
-    }
-  }
+  } 
 }
