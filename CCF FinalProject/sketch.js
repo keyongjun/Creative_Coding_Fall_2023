@@ -112,6 +112,12 @@ function setup() {
   textArr[3] = "grid[0]";
   textArr[4] = "dist(enemy.x, enemy.y, bullet.x, bullet.y);";
   textArr[5] = "image(i_house,400,335);";
+
+  nowStage = 1;
+  bP2 = new boxPlayer(770,random(0,height-50));
+  bP2.eye = 15;
+  reset();
+  nowStage = 0;
 }
 
 function draw() {
