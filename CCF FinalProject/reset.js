@@ -46,5 +46,20 @@ function reset() {
     }
     aP.x = width/2;
     aP.y = height - 30;
-  } 
+  } else if (nowStage == 3) {
+    current = grid[0];
+    player = grid[0];
+  } else if (nowStage == 4) {
+    this.x = width/2 - 12;
+    score = 0;
+    for (let enemy of enemies) {
+      enemy.y = random(-850, 0);
+    }
+    for (let bullet of bullets) {
+      bullet.y = -900;
+    }
+  } else if (nowStage == 5) {
+    bP.x = -50;
+    bP.y = height-75;
+  }
 }

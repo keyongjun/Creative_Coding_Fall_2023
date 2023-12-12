@@ -32,11 +32,38 @@ let scene = 0;
 let ellcoll = false;
 let eyemove = true;
 
-//green light red light
+//red light green light
 let played_moo1 = false;
 let played_moo2 = false;
 let played_moo3 = false;
 let bP2;
+
+//dodge game
+let aP;
+let aR = [];
+
+//maze game
+let cols, rows;
+let m_s = 50;
+let grid = [];
+let gameEnd = false;
+
+let current;
+let player;
+let next_p;
+let stack = [];
+
+let m_startgame = false;
+
+let goMove = false;
+let ones = true;
+
+//shooting game
+let bullets = [];
+let enemies = [];
+let score = 0;
+let sP;
+let highscore = 0;
 
 
 
@@ -75,7 +102,11 @@ function preload(){
   s_punch = loadSound('audios/punch.mp3');
   i_lightoff = loadSound('audios/lightoff.mp3');
   i_hit = loadImage('images/hit.png');
+  //maze game
   s_mazemove = loadSound('audios/maze_move.mp3');
+  //shooting game
+  s_shoot = loadSound('audios/shoot.mp3');
+  //final
 }
 
 function setup() {
@@ -113,11 +144,46 @@ function setup() {
   textArr[4] = "dist(enemy.x, enemy.y, bullet.x, bullet.y);";
   textArr[5] = "image(i_house,400,335);";
 
+  //red light, green light
   nowStage = 1;
   bP2 = new boxPlayer(770,random(0,height-50));
   bP2.eye = 15;
   reset();
   nowStage = 0;
+
+  //dodge game
+  bP3 = new boxPlayer(width/2-25,height-75);
+  bP3.eye = 15;
+  aP = new avoidPlayer(width/2, height-30);
+  for(let i = 0; i < 7; i++) {
+    aR[i] = new avoidRect(0,(i+1)*100,1,0);
+    aR[i+7] = new avoidRect(width,(i+1)*100+50,-1,0);
+  }
+  
+  //maze game
+  cols = floor(width / m_s);
+  rows = floor(height / m_s);
+  for (let j = 0; j <rows; j++){
+    for(let i = 0 ; i < cols; i++){
+      let cell = new Cell(i,j);
+      grid.push(cell);
+    }
+  }
+  
+  current = grid[0];
+  player = grid[0];
+  
+  //shooting game
+  for (let p = 0; p < 100; p++) {
+    let enemy = {
+      x: random(0, width),
+      y: random(-850, 0),
+    };
+    enemies.push(enemy);
+  }
+  sP = new shootP();
+  
+  //final
 }
 
 function draw() {
@@ -301,4 +367,13 @@ function keyPressed() {
     textShow++;
   }
   }
+  //shooting game
+  if (keyCode == 32 && nowStage == 4 && textShow == 4) {
+    let bullet = {
+      x: sP.x,
+      y: height - 50,
+    };
+    bullets.push(bullet);
+    s_shoot.play();
+  }  
 }
