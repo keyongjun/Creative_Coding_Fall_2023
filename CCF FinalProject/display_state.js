@@ -319,7 +319,7 @@ function display_state() {
         text("[Maze game]",width/2,200);
         textSize(20);
         fill(0);
-        text("What function calculates the distance between the values of x and y of the enemy object and the values of x and y of the bullet object?",width/2,250);
+        text("What function calculates the distance between the values of x and y\n of the enemy object and the values of x and y of the bullet object?",width/2,250);
         text("Answer: ",130,373);
         pop();
       }

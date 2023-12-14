@@ -40,7 +40,7 @@ function hellobox() {
     push();
     noStroke();
     if (textShow > 0) {
-      text("22cg",tx-50,ty);
+      text("CCF",tx-50,ty);
       text("| Hello everyone! Let's use a p5.js ",tx,ty);
     }
     if (textShow > 1) {
@@ -85,7 +85,7 @@ function hellobox() {
       }
     }
     if (textShow > 7) {
-      text("22cg",tx-50,ty+232);
+      text("CCF",tx-50,ty+232);
       text("| Good job!",tx,ty+232);
       push();
       stroke(0);

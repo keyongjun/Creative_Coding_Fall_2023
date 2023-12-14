@@ -107,6 +107,11 @@ function preload(){
   //shooting game
   s_shoot = loadSound('audios/shoot.mp3');
   //final
+  i_house = loadImage('images/house.png');
+  i_end1 = loadImage('images/end1.png');
+  i_end2 = loadImage('images/end2.png');
+  i_end3 = loadImage('images/end3.png');
+  i_credit = loadImage('images/credit.png');
 }
 
 function setup() {
@@ -141,7 +146,7 @@ function setup() {
   textArr[1] = "keyIsPressed";
   textArr[2] = "class avoidRect {}";
   textArr[3] = "grid[0]";
-  textArr[4] = "dist(enemy.x, enemy.y, bullet.x, bullet.y);";
+  textArr[4] = "dist(e.x, e.y, b.x, b.y);";
   textArr[5] = "image(i_house,400,335);";
 
   //red light, green light
@@ -184,6 +189,8 @@ function setup() {
   sP = new shootP();
   
   //final
+  bP4 = new boxPlayer(-50, height-75);
+  bP4.eye = 15;
 }
 
 function draw() {
@@ -243,7 +250,7 @@ class stage_c {
     let t_size = 14; //size of the triangle
     let h = (t_size*2)*sqrt(3)/2; //calculate the height of a triangle for an equilateral triangle
     let a, b;
-    //Because we need to enable the triangle of the previous stage, 
+    //Because I need to enable the triangle of the previous stage, 
     // save the coordinates considering the coordinates of the previous button in a,b.
     if(this.n > 1 && this.n < 7){
       a = stage[this.n-2].x+b_size+13;
